@@ -1,0 +1,2 @@
+main DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"tema_curs.c" LINE:73
+timer0_ovf_isr DSTACK_USAGE:1 DSTACK_LEVEL:1 FILE:"tema_curs.c" LINE:65
