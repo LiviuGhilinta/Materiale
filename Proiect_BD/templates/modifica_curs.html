@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tabela Cursuri</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body>
+	<h1 align="center">Tabela Cursuri:</h1>
+	<br />
+	<p align="center">
+		<a href="/nou_curs" class="btn btn-primary btn-lg px-5">
+    <i class="fa fa-book" aria-hidden="true"></i> <span>Adauga Curs</span></a> 
+	</p>
+	<form action="/m1_curs" method="post">
+		<table border="1" align="center">
+			<tr>
+				<td><b>Mark:</b></td>
+				<td><b>IdCurs:</b></td>
+				<td><b>Nume:</b></td>
+				<td><b>Disciplina:</b></td>
+			</tr>
+			{%for c in curs %}
+			<tr>
+				<td><input type="checkbox" name="primarykey" value="{{c[0]}}" /></td>
+				<td>{{c[0]}}</td>
+				<td>{{c[1]}}</td>
+				<td>{{c[2]}}</td>
+			</tr>
+            {% endfor %}
+		</table>
+		<br />
+		<p align="center">
+			 <button type="submit" class="btn btn-danger btn-lg px-5">
+        	<i class="fa fa-pencil"></i> Modifica linia
+    		</button>
+		</p>
+	</form>
+	<br />
+	<p align="center">
+		   <a href="/dupa_acces" class="btn btn-primary btn-lg px-5">
+    <i class="fa fa-home"></i> <span>Home</span> </a> <br />
+	</p>
+</body>
+</html>
