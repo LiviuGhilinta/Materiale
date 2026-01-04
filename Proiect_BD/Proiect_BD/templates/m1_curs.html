@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Modifica Clasa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body class="bg-info">
+    <div class="container bg-white p-4 shadow rounded mt-5">
+        <h1 class="text-center"><i class="fa fa-edit"></i> Modifică Clasa</h1>
+        <br />
+        
+        <form action="/m2_clasa" method="post">
+            <table class="table align-center">
+                <tr>
+                    <td align="right">IdClasa:</td>
+                    <td>
+                        <input type="text" name="idclasa" size="30" value="{{id_aux}}" readonly class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">ID Profesor:</td>
+                    <td>
+                        <select name="idprofesor" class="form-control">
+                            {% for p in profesori %}
+                                <option value="{{ p[0] }}" {% if p[0] == clasa[1] %}selected{% endif %}>
+                                    {{ p[1] }} {{ p[2] }} ({{ p[3] }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">ID Curs:</td>
+                    <td>
+                        <select name="idcurs" class="form-control">
+                            {% for c in curs %}
+                                <option value="{{ c[0] }}" {% if c[0] == clasa[2] %}selected{% endif %}>
+                                    {{ c[1] }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Data Curs:</td>
+                    <td><input type="text" name="DataCurs" size="30" value="{{clasa[3]}}" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <td align="right">Clasa:</td>
+                    <td><input type="text" name="Clasa" size="30" value="{{clasa[4]}}" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <td align="right">Numar Elevi:</td>
+                    <td><input type="text" name="NumarElevi" size="30" value="{{clasa[5]}}" class="form-control" /></td>
+                </tr>
+            </table>
+
+            <p align="center" class="mt-4">
+                <button type="submit" class="btn btn-warning shadow">
+                    <i class="fa fa-save"></i> Modifică linia
+                </button>
+                <a href="/dupa_acces" class="btn btn-primary shadow">
+                    <i class="fa fa-home"></i> Home
+                </a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+    <title>Eroare Creare Cont</title>
+</head>
+<body class="bg-info">
+    <div class="container py-5 text-center">
+        <div class="alert alert-danger">
+            <h1>Eroare!</h1>
+            <p>Utilizatorul <strong>{{ username }}</strong> există deja în baza de date.</p>
+            <a href="/create_user" class="btn btn-primary">Înapoi la Creare Cont</a>
+        </div>
+    </div>
+</body>
+</html>

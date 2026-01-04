@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lista Useri</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body>
+
+<h1 align="center">Lista utilizatori:</h1>
+
+<form action="/sterge_user" method="post">
+<table border="1" align="center">
+<tr>
+    <th>Mark</th>
+    <th>Username</th>
+</tr>
+
+{% for u in users %}
+<tr>
+    <td>
+        {% if u[0] != 'root' %}
+        <input type="checkbox" name="primarykey" value="{{ u[0] }}">
+        {% else %}
+        -
+        {% endif %}
+    </td>
+    <td>{{ u[0] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<p align="center">
+    <button type="submit" class="btn btn-danger btn-lg px-5">
+        <i class="fa fa-trash"></i> Sterge userii selectați
+    </button>
+</p>
+</form>
+
+<p align="center">
+    <a href="/acces_root" class="btn btn-primary btn-lg px-5">
+        <i class="fa fa-home"></i> Home
+    </a>
+</p>
+
+</body>
+</html>
